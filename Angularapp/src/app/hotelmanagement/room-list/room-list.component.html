@@ -1,0 +1,130 @@
+<h1 class="text-center">
+  Room List
+</h1>
+<hr>
+<!-- <div class="form-group">
+  <label>Date:</label>
+      <div class="input-group">
+        <!-- <input type="date" class="form-control col-md-8" formControlName="date"/> -->
+        <!-- <input type="date" [(ngModel)]="presentDate" class="form-control col-md-8" formControlName="date"/>
+      </div>
+</div> -->
+<div class="row">
+  <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-md-offset-12 col-sm-offset-12"> -->
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-7">
+         <input type="date" class="form-control col-md-8" formControlName="presentDate"/>
+        </div>
+        <div class="col-5">
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+    </div>
+    </form>
+
+  <!-- </div> -->
+</div>
+<div class="row">
+<label id="textmessage" style="color: green;"></label>
+</div>
+<!-- <div class="row ">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+      <label>Input Date</label>
+      <div class="input-group m-input-group m-input-group--square">
+          <input type="date" id="fromDate" name="trip-start" value="text" (focusout)="clickUpload($event)">
+      </div>
+  </div>
+
+  
+  <div class="col-8 col-sm-12 col-md-6 col-lg-2 col-xl-2">
+      <div class="input-group m-input-group m-input-group--square" style="margin-top: 20px;">
+          <button id="bookButton" (click)="onSubmit()" type="button" class="btn btn-danger m-btn m-btn--custom m-btn--icon" data-wizard-action="next">Submit</button>
+      </div>
+  </div>
+</div> -->
+<br>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Room Number</th>
+    <th>Room Type</th>
+    <th>Room Availability</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let room of service.list">
+    <td>{{room.RoomNo}}</td>
+    <td>{{room.Type}}</td>
+    <td>{{room.Availability}}</td>
+    <!-- <td><button (click)="onDelete(emp.EmployeeID)" class="btn btn-sm btn-outline-danger">X</button></td> -->
+  </tr>
+</tbody>
+</table>
+
+<style>
+   th {  
+    border: 0px solid rgb(184, 179, 179);
+    text-align: left;
+    background-color: #ddd;
+  }
+
+  td {  
+    border: 1px solid rgb(194, 181, 181);
+    text-align: left;
+  }
+
+  tbody {
+    display:block;
+    height:250px;
+    overflow:auto;
+}
+thead {
+    width: calc( 100% - 1em );
+}
+  table {
+    width: 100%;
+
+  }
+
+  thead, tbody tr {
+    display:table;
+    width:100%;
+   table-layout:fixed;
+}
+  
+  th, td {
+    padding: 15px;
+  }
+  </style>
+<script>
+$(document).ready(function () {
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1; //January is 0!
+  var yyyy = today.getFullYear();
+  if (dd < 10) {
+      dd = '0' + dd
+  }
+  if (mm < 10) {
+      mm = '0' + mm
+  }
+
+  today = yyyy + '-' + mm + '-' + dd;
+  document.getElementById("fromDate").setAttribute("value", today);
+});
+
+function clickUpload()
+  {
+    alert('test');
+    // angular.element('#upload').trigger('click');
+};
+
+
+</script>
+
+<script type="text/javascript">
+  function reply_click(clicked_id)
+  {
+      alert(clicked_id);
+  }
+</script>

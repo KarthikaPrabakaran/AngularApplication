@@ -1,0 +1,31 @@
+<h1 class="text-center">
+ Login
+</h1>
+<hr>
+<div>
+<div class="row" style="margin-left: 400px;">
+  <div class="col-md-6" style="margin-left: 40px;text-align: center;">
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+  <!-- Name input -->
+  <div class="form-outline mb-4" style="text-align: left;">
+    <label class="form-label" for="form5Example1">UserName</label>
+    <input name="UserName" #UserName="ngModel" [(ngModel)]="service.loginformData.UserName" class="form-control" required> 
+  <div class="validation-error" *ngIf="UserName.invalid && UserName.touched">UserName field is required.</div>
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4" style="text-align: left;">
+    <label class="form-label" for="form5Example2">Password</label>
+     <input name="Password" type="password" #Password="ngModel" [(ngModel)]="service.loginformData.Password" class="form-control" required> 
+  <div class="validation-error" *ngIf="Password.invalid && Password.touched">Password field is required.</div>
+
+  </div>
+  <!-- Submit button -->
+  <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">
+    Login
+      </button>
+</form>
+
+  </div>
+</div>
+</div>

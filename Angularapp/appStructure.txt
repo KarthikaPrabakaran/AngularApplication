@@ -1,0 +1,19 @@
+● src
++---● app
+|   +--● hotelmanagement
+|   |  |--hotelmanagement.component.ts|.html|.css
+       +--● user-login
+|   |  |  |--user-login.component.ts|.html|.css
+|   |  +--● room
+|   |  |  |--room.component.ts|.html|.css
+|   |  |
+|   |  +--● room-list
+|   |  |  |--room-list.component.ts|.html|.css
+|   |  |
+|   |  +--● shared
+|   |     |--room.service.ts
+|   |     |--room.model.ts
+|   |
+|   |--app.module.ts
+|
+|--index.html (cdn path for bootstrap)
